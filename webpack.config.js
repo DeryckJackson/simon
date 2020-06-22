@@ -14,7 +14,7 @@ module.exports = {
     contentBase: './dist'      
   },
   plugins: [
-    new UglifyjsPlugin({ sourceMap: true }),
+    new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'simon',
@@ -30,6 +30,11 @@ module.exports = {
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
       }
     ]
   }
